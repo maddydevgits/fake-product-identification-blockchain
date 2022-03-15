@@ -8,6 +8,9 @@ Official Repo of my project Fake Product Identification using Blockchain
 4. Ganache
 5. Metamask
 
+# IDs
+QR Code
+
 # Process
 1. Clone the Project
 2. Go to the working directory
