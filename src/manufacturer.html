@@ -48,8 +48,8 @@
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav m-auto">
-	        	<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-			  	<li class="nav-item"><a href="manufacturer.html" class="nav-link">Manufacturers</a></li>
+	        	<li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+			  	<li class="nav-item active"><a href="manufacturer.html" class="nav-link">Manufacturers</a></li>
 	        	<li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
 	          	<li class="nav-item"><a href="sellproduct.html" class="nav-link">Sell Product</a></li>
 	        </ul>
@@ -60,74 +60,31 @@
 
 	</section>
     <section>
-        <div class="container-fluid">
-            <center>
-                <div id="qr-reader" style="width:300px"></div>
-                <div id="qr-reader-results"></div>
-            </center>
-        </div>
+        <div class="container">
+            <h2>Register Here</h2>
+              
+              <div class="form-group">
+                <label for="name">Product Id:</label>
+                <input type="text" class="form-control" id="productId" placeholder="Enter Product ID" name="productId">
+              </div>
+          
+              <div class="form-group">
+                <label for="email">Shop:</label>
+                <input type="email" class="form-control" id="pOwner" placeholder="Enter Shop" name="pOwner">
+              </div>
+              
+              <button type="submit" class="btn btn-warning btn-register" id="register">Tag the Product</button>
+          </div>
     </section>
-	<br/>
-	<section>
-		<div class="container">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Product ID</th>
-				<th>Shop</th>
-				<th>Status</th>
-			</tr>
-		</thead>
-		<tbody id="logdata">
-			
-		</tbody>
-	</table>
-	</div>
-	</section>
 
-  <script src="js/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/popper.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
-  <script src="https://unpkg.com/html5-qrcode"></script>
   <script src="js/web3.min.js"></script>
   <script src="js/truffle-contract.js"></script>
-  <script src="js/fakeapp.js"></script>
-<script>
-    function docReady(fn) {
-        // see if DOM is already available
-        if (document.readyState === "complete"
-            || document.readyState === "interactive") {
-            // call on next available tick
-            setTimeout(fn, 1);
-        } else {
-            document.addEventListener("DOMContentLoaded", fn);
-        }
-    }
-
-    docReady(function () {
-        var resultContainer = document.getElementById('qr-reader-results');
-        var lastResult, countResults = 0;
-        function onScanSuccess(decodedText, decodedResult) {
-            if (decodedText !== lastResult) {
-                ++countResults;
-                lastResult = decodedText;
-                // Handle on success condition with the decoded message.
-                var audio = new Audio('beep.wav');
-                audio.play();
-                console.log(`Scan result ${decodedText}`, decodedResult);
-                document.getElementById('qr-reader-results').innerHTML=decodedText;
-				App.init(decodedText);
-                
-            }
-        }
-
-        var html5QrcodeScanner = new Html5QrcodeScanner(
-            "qr-reader", { fps: 10, qrbox: 250 });
-        html5QrcodeScanner.render(onScanSuccess);
-    });
-</script>
-	</body>
+  <script src="js/app.js"></script>
+  </body>
 </html>
 
 
